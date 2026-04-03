@@ -1,5 +1,52 @@
 # Word LaTeX MathType Skill
 
+![示例截图](./assets/github-demo.png)
+
+> 在 Windows 上将 Word `.docx` 中的 LaTeX 公式文本批量转换为 MathType 或 Word 公式对象，内置显示公式 `$` 残留清理与中文 `\text{}` 混排修复。
+
+## 快速开始
+
+### 1. 准备环境
+
+```powershell
+cd "I:\CodexWorkSpace\Word&latex&pdf\word-latex-mathtype-skill"
+powershell -ExecutionPolicy Bypass -File .\scripts\setup_environment.ps1
+```
+
+### 2. 执行转换
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\convert_docx_latex_to_equations.ps1 `
+  -SourcePath "I:\CodexWorkSpace\Word&latex&pdf\program_logic_report_weighted.docx"
+```
+
+### 3. 查看输出
+
+- 输出文档默认生成为 `原文件名_formula.docx`
+- 日志默认生成为 `原文件名_formula_log.json`
+- MathType 失败时会自动回退到 Word 原生公式
+
+## 一键命令
+
+### 首次使用
+
+```powershell
+cd "I:\CodexWorkSpace\Word&latex&pdf\word-latex-mathtype-skill"; powershell -ExecutionPolicy Bypass -File .\scripts\setup_environment.ps1; powershell -ExecutionPolicy Bypass -File .\scripts\convert_docx_latex_to_equations.ps1 -SourcePath "I:\CodexWorkSpace\Word&latex&pdf\program_logic_report_weighted.docx"
+```
+
+### 指定输入输出
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\convert_docx_latex_to_equations.ps1 `
+  -SourcePath "I:\docs\input.docx" `
+  -TargetPath "I:\docs\input_formula.docx" `
+  -LogPath "I:\docs\input_formula_log.json"
+```
+
+## 示例截图
+
+下面这张图展示的是转换完成后的 Word 文档窗口，公式已经不是普通 LaTeX 文本，而是可编辑的公式对象；其中包含分式、求和和中文混排等场景。
+
 这是一个面向 Windows 环境的 Codex Skill，用来把 Word `.docx` 文档中的 LaTeX 公式文本转换成真正的公式对象。它优先使用 MathType 进行转换，在 MathType 不可用或单条公式转换失败时，会自动回退到 Word 原生公式。
 
 这个 skill 不是简单地把 LaTeX 重新排版成普通文本，而是尽量把公式转换成可编辑、可继续在 Word 中维护的对象格式，适合论文整理、技术报告清洗、实验记录规范化和已有 Word 文档的公式修复。
