@@ -1,0 +1,5 @@
+interface:
+  display_name: "Word LaTeX MathType"
+  short_description: "Convert DOCX LaTeX into MathType equations"
+  brand_color: "#0F766E"
+  default_prompt: "Use $word-latex-mathtype-skill to convert LaTeX in a Word .docx file into MathType or Word equation objects."

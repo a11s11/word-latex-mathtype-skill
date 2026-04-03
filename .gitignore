@@ -1,0 +1,18 @@
+# Word lock files
+~$*.docx
+~$*.doc
+
+# Generated conversion outputs
+*_formula.docx
+*_formula_log.json
+*_formula_fixed*.docx
+*_formula_fixed*_log.json
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Python cache
+__pycache__/
+*.pyc
