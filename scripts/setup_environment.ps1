@@ -225,16 +225,6 @@ $python = Ensure-WingetPackage -Id 'Python.Python.3.12' -DisplayName 'Python 3.1
 )
 $pythonYaml = Ensure-PythonModule -PythonPath $python.path -ModuleName 'yaml' -PackageName 'PyYAML'
 
-$git = Ensure-WingetPackage -Id 'Git.Git' -DisplayName 'Git' -CommandNames @('git', 'git.exe') -CandidatePaths @(
-    'C:\Program Files\Git\cmd\git.exe',
-    'C:\Program Files\Git\bin\git.exe'
-)
-
-$githubCli = Ensure-WingetPackage -Id 'GitHub.cli' -DisplayName 'GitHub CLI' -CommandNames @('gh', 'gh.exe') -CandidatePaths @(
-    'C:\Program Files\GitHub CLI\gh.exe',
-    'C:\Users\Admin\AppData\Local\Programs\GitHub CLI\gh.exe'
-)
-
 $wordPath = Get-WordInstallPath
 $mathType = Get-MathTypeInfo
 
@@ -251,8 +241,6 @@ if (-not $mathType.installed) {
     pythonModules = [pscustomobject]@{
         yaml = $pythonYaml
     }
-    git = $git
-    githubCli = $githubCli
     word = [pscustomobject]@{
         installed = $true
         path = $wordPath
